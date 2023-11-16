@@ -1,6 +1,5 @@
-"use client";
-
 import { useCallback } from "react";
+import { Button } from "./button";
 
 interface ProductProps {
   params: {
@@ -10,10 +9,10 @@ interface ProductProps {
 
 // Straming SSR
 // Renderizar um componente no lado do servidor de forma parcial
-export default function ProductPage(props: ProductProps) {
+export default async function ProductPage(props: ProductProps) {
+  const rs = await fetch(`https://api.github.com/users/deyvisonborges`);
+  const json = await rs.json();
   const [productId, size, color] = props.params.data;
-
-  const onClick = useCallback(() => console.log(`cliquou`), []);
 
   return (
     <>
@@ -21,7 +20,7 @@ export default function ProductPage(props: ProductProps) {
       <p>Size: {size}</p>
       <p>Color: {color}</p>
 
-      <button onClick={onClick}>Clique me</button>
+      <Button />
     </>
   );
 }
