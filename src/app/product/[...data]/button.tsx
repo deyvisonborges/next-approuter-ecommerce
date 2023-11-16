@@ -1,6 +1,7 @@
-'use client'
+"use client";
 
 import { useState } from "react";
+import { ClientBoundarie } from "./clientboundarie";
 
 export function Button() {
   const [count, setCount] = useState();
@@ -9,5 +10,10 @@ export function Button() {
     setCount((state: any) => state + 1);
   }
 
-  return <button onClick={onClick}>Click to count</button>;
+  return (
+    <div>
+      <button onClick={onClick}>Click to count</button>
+      <ClientBoundarie />
+    </div>
+  );
 }
