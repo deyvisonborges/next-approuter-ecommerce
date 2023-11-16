@@ -1,5 +1,6 @@
-import { useCallback } from "react";
+import { Suspense, useCallback } from "react";
 import { Button } from "./button";
+import { ServerComponent } from "./servercomp";
 
 interface ProductProps {
   params: {
@@ -21,6 +22,9 @@ export default async function ProductPage(props: ProductProps) {
       <p>Color: {color}</p>
 
       <Button />
+      <Suspense fallback={<p>Carregando o server component demorado</p>}>
+        <ServerComponent />
+      </Suspense>
     </>
   );
 }
