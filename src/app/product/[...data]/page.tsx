@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useCallback } from "react";
 
@@ -8,6 +8,8 @@ interface ProductProps {
   };
 }
 
+// Straming SSR
+// Renderizar um componente no lado do servidor de forma parcial
 export default function ProductPage(props: ProductProps) {
   const [productId, size, color] = props.params.data;
 
